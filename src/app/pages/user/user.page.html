@@ -1,0 +1,44 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home"></ion-back-button>
+    </ion-buttons>
+    <ion-title>User Details</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content class="ion-padding">
+
+  <form #form="ngForm" (ngSubmit)="saveUser(form)" method="post">
+
+      <ion-label position="floating">1. Name:</ion-label>
+      <ion-item>
+        <ion-input [(ngModel)]="user.name" type="text" name="name" maxlength="45" required
+          placeholder="Name">
+        </ion-input>
+      </ion-item>
+
+      <ion-label position="floating">2. Lastname:</ion-label>
+      <ion-item>
+        <ion-input [(ngModel)]="user.lastname" type="text" name="lastname" maxlength="45" required
+          placeholder="Lastname">
+        </ion-input>
+      </ion-item>
+
+      <ion-label position="floating">3. Age:</ion-label>
+      <ion-item>
+        <ion-input [(ngModel)]="user.age" type="number" name="age" maxlength="3" required
+          placeholder="Age">
+        </ion-input>
+      </ion-item>
+
+  
+      <ion-fab vertical="botton" horizontal="top" slot="fixed">
+          <section>
+            <ion-button [disabled]="!form.valid" type="submit" color="success">Save</ion-button>
+            <ion-button color="danger" routerLink="/home">Cancel</ion-button>
+          </section>
+        </ion-fab> 
+
+  </form>
+
+</ion-content>
